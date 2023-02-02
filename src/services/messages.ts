@@ -1,0 +1,69 @@
+import fs from 'fs/promises';
+import path from 'path';
+// import { Message } from 'src/types/Message';
+
+export async function getAllMessages() {
+  const filePath = path.resolve('public/api', 'messages.json');
+  const data = await fs.readFile(filePath, 'utf-8');
+  const parsedData = JSON.parse(data);
+
+  return parsedData;
+}
+
+export async function addOneMessage(body: any) {
+  const filePath = path.resolve('public/api', 'messages.json');
+  const data = await fs.readFile(filePath, 'utf-8');
+  const parsedData = JSON.parse(data);
+  const maxID = Math.max(...parsedData.map((message: any) => message.id));
+  const createdAt = new Date();
+  const { username, email, homepage, messageText } = body;
+  let newMessage;
+
+  if (homepage === '') {
+    newMessage = {
+      id: maxID > 0 ? (maxID + 1) : 1,
+      createdAt,
+      username,
+      email,
+      homepage: 'NULL',
+      messageText,
+    };
+  } else {
+    newMessage = {
+      id: maxID > 0 ? (maxID + 1) : 1,
+      createdAt,
+      ...body,
+    };
+  }
+
+  parsedData.push(newMessage);
+
+  await fs.writeFile(filePath, JSON.stringify(parsedData));
+
+  return newMessage;
+}
+
+// export const getAll = async() => {
+//   return Good.findAll();
+// };
+
+// export const getGoodById = async(goodId: number) => {
+//   return Good.findByPk(goodId);
+// };
+
+// export const addGood = async(name: string, colorId: number) => {
+//   const newGood = {
+//     name,
+//     colorId,
+//   };
+
+//   return Good.create(newGood);
+// };
+
+// export const removeGood = async(goodId: number) => {
+//   return Good.destroy({
+//     where: {
+//       id: goodId,
+//     },
+//   });
+// };
