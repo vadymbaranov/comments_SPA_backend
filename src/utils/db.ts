@@ -1,22 +1,28 @@
 /* eslint-disable max-len */
-// import { Sequelize } from 'sequelize';
-// import * as dotenv from 'dotenv';
-// // import { createClient } from '@supabase/supabase-js';
+import * as dotenv from 'dotenv';
+import * as pg from 'pg';
+import { Sequelize } from 'sequelize';
+// import { createClient } from '@supabase/supabase-js';
 
-// dotenv.config();
+dotenv.config();
 
-// // const { SUPABASE_URL, SUPABASE_KEY } = process.env;
+const { SUPABASE_HOST, SUPABASE_PASSWORD } = process.env;
 
-// // const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+// const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
-// // export default supabase;
+// export default supabase;
 
-// // if (!SUPABASE_URL || !SUPABASE_KEY) {
-// //   throw new Error('Missing Database config');
-// // }
+const dbName: string = process.env.DB_NAME || '';
+const dbUsername: string = process.env.DB_USERNAME || '';
 
-// // export const sequelize = new Sequelize('postgres', 'postgres', SUPABASE_KEY, {
-// //   host: 'db.vvkcvzghyktjppxjmwjt.supabase.co',
-// //   dialect: 'postgres',
-// // });
+// // export const sequelize = new Sequelize(URI);
 
+if (!SUPABASE_HOST || !SUPABASE_PASSWORD) {
+  throw new Error('Missing Database config');
+}
+
+export const sequelize = new Sequelize(dbUsername, dbName, SUPABASE_PASSWORD, {
+  host: SUPABASE_HOST,
+  dialect: 'postgres',
+  dialectModule: pg,
+});

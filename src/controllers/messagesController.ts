@@ -1,11 +1,18 @@
 /* eslint-disable no-shadow */
 import { Request, Response } from 'express';
+import { MessageType } from 'src/types/MessageType';
 import { getAllMessages, addOneMessage } from '../services/messages';
 
 export const getAll = async(req: Request, res: Response) => {
   const messages = await getAllMessages();
 
-  res.json(messages);
+  const messagesSorted = messages
+    .map((message: MessageType) => (
+      { ...message, createdAt: new Date(message.createdAt) }))
+    .sort((messageA: MessageType, messageB: MessageType) => (
+      Number(messageB.createdAt) - Number(messageA.createdAt)));
+
+  res.json(messagesSorted);
 };
 
 export const addOne = async(req: Request, res: Response) => {
@@ -14,13 +21,15 @@ export const addOne = async(req: Request, res: Response) => {
     email,
     homepage,
     messageText,
+    responseTo,
   } = req.body;
 
   if (typeof username !== 'string'
     || typeof email !== 'string'
     || typeof homepage !== 'string'
     || typeof messageText !== 'string'
-    || Object.keys(req.body).length < 4
+    || typeof responseTo !== 'string'
+    || Object.keys(req.body).length < 5
   ) {
     res.sendStatus(400);
 

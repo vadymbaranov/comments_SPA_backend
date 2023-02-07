@@ -1,8 +1,9 @@
-export interface Message {
+export interface MessageType {
   id: number,
   username: string,
   createdAt: string,
   email: string,
   homepage?: string | null,
   messageText: string,
+  responseTo: string,
 }
