@@ -1,7 +1,33 @@
+import {
+  Model,
+  InferAttributes,
+  InferCreationAttributes,
+  CreationOptional,
+} from 'sequelize';
 import fs from 'fs/promises';
 import path from 'path';
 import { Message } from '../models/messageModel';
 // import { MessageType } from 'src/types/MessageType';
+
+// eslint-disable-next-line max-len
+// class Comment extends Model<InferAttributes<Message>, InferCreationAttributes<Message>> {
+
+// }
+
+// export function normalize(message: Message) {
+
+//   return {
+//     id,
+//     createdAt,
+//     username,
+//     email,
+//     homepage,
+//     message,
+//     image,
+//     textFile,
+//     responseTo,
+//   };
+// }
 
 export async function getAllMessages() {
   const filePath = path.resolve('public/api', 'messages.json');

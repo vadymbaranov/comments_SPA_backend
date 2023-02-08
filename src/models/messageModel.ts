@@ -37,14 +37,21 @@ export const Message = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    image: {
+      field: 'image',
+      type: DataTypes.STRING,
+    },
+    textFile: {
+      field: 'text_file',
+      type: DataTypes.STRING,
+    },
+    responseTo: {
+      field: 'response_to',
+      type: DataTypes.STRING,
+    },
   },
   {
     tableName: 'messages',
     updatedAt: false,
   },
 );
-
-// Good.belongsTo(Color, {
-//   foreignKey: 'color_id',
-//   constraints: false,
-// });

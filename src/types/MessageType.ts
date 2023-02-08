@@ -5,5 +5,7 @@ export interface MessageType {
   email: string,
   homepage?: string | null,
   messageText: string,
+  image: string,
+  textFile: string,
   responseTo: string,
 }
