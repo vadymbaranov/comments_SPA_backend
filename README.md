@@ -20,8 +20,3 @@ Application allows users to exchange messages in realtime, use HTML tags in thei
 * Run `npm install` in your terminal
 * Copy or move files from folder 'modules_fix/pg-native' to folder 'node_modules/pg-native' 
 * Run `npm start`
-
-## Troubleshooting
-
-Any advise for common problems or issues.
-For any contributing or problem solving you could find me [here]() and [here]()
