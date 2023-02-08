@@ -1,10 +1,9 @@
 # Comments(chat) - SPA
 
-Write here about your project in two-three sentences.
 - [DEMO LINK](https://vadymbaranov.github.io/comments_SPA_frontend)
 
 ## Description
-Comments(chat) SPA(single-page application) using React for Frontend, Node.js + Express.js + Supabase (PostgreSQL) + ORM Sequelize for Backend([REPO LINK](https://github.com/vadymbaranov/comments_SPA_backend)).
+Comments(chat) SPA(single-page application) using React for Frontend, Node.js + Express.js + Supabase (PostgreSQL) + ORM Sequelize for Frontend([REPO LINK](https://github.com/vadymbaranov/comments_SPA_frontend)).
 Application allows users to exchange messages in realtime, use HTML tags in their messages such as: `<a href=”” title=””> </a> <code> </code> <i> </i> <strong> </strong>`
 
 ## Local development

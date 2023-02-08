@@ -2,7 +2,6 @@
 import fs from 'fs/promises';
 import path from 'path';
 import { Message } from '../models/messageModel';
-// import { MessageType } from 'src/types/MessageType';
 
 export async function getAllMessages() {
   const filePath = path.resolve('public/api', 'messages.json');
