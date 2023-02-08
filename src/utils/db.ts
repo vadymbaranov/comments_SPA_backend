@@ -21,6 +21,7 @@
 //   throw new Error('Missing Database config');
 // }
 
+// eslint-disable-next-line max-len
 // export const sequelize = new Sequelize(dbUsername, dbName, SUPABASE_PASSWORD, {
 //   host: SUPABASE_HOST,
 //   dialect: 'postgres',
