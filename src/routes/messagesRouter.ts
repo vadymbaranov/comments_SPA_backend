@@ -8,4 +8,9 @@ import { getAll, addOne } from '../controllers/messagesController';
 export const messagesRouter = express.Router();
 
 messagesRouter.get('/messages', getAll);
-messagesRouter.post('/', express.urlencoded({ extended: true }), addOne);
+
+messagesRouter.post(
+  '/messages',
+  express.urlencoded({ extended: true }),
+  addOne,
+);

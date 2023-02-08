@@ -4,7 +4,7 @@ Write here about your project in two-three sentences.
 - [DEMO LINK](https://vadymbaranov.github.io/comments_SPA_frontend)
 
 ## Description
-Comments(chat) SPA(single-page application) using React for Frontend, Node.js + Express.js (WebSockets) + Supabase (PostgreSQL) + ORM Sequelize for Backend([REPO LINK](https://github.com/vadymbaranov/comments_SPA_backend)).
+Comments(chat) SPA(single-page application) using React for Frontend, Node.js + Express.js + Supabase (PostgreSQL) + ORM Sequelize for Backend([REPO LINK](https://github.com/vadymbaranov/comments_SPA_backend)).
 Application allows users to exchange messages in realtime, use HTML tags in their messages such as: `<a href=”” title=””> </a> <code> </code> <i> </i> <strong> </strong>`
 
 ## Local development
@@ -18,8 +18,8 @@ Application allows users to exchange messages in realtime, use HTML tags in thei
 ### Installing
 * Fork and clone this repository
 * Run `npm install` in your terminal
+* Copy or move files from folder 'modules_fix/pg-native' to folder 'node_modules/pg-native' 
 * Run `npm start`
-* ... (maybe, you would have to add something more for this instruction)
 
 ## Troubleshooting
 

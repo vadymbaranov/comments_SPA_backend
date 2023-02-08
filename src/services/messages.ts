@@ -1,33 +1,8 @@
-import {
-  Model,
-  InferAttributes,
-  InferCreationAttributes,
-  CreationOptional,
-} from 'sequelize';
+/* eslint-disable no-shadow */
 import fs from 'fs/promises';
 import path from 'path';
 import { Message } from '../models/messageModel';
 // import { MessageType } from 'src/types/MessageType';
-
-// eslint-disable-next-line max-len
-// class Comment extends Model<InferAttributes<Message>, InferCreationAttributes<Message>> {
-
-// }
-
-// export function normalize(message: Message) {
-
-//   return {
-//     id,
-//     createdAt,
-//     username,
-//     email,
-//     homepage,
-//     message,
-//     image,
-//     textFile,
-//     responseTo,
-//   };
-// }
 
 export async function getAllMessages() {
   const filePath = path.resolve('public/api', 'messages.json');
@@ -54,6 +29,7 @@ export async function addOneMessage(body: any) {
   const maxID = Math.max(...parsedData.map((message: any) => message.id));
   const createdAt = new Date();
   const { username, email, homepage, messageText, responseTo } = body;
+
   let newMessage;
 
   if (homepage === '' && responseTo === '') {
@@ -70,15 +46,15 @@ export async function addOneMessage(body: any) {
     newMessage = {
       id: maxID > 0 ? (maxID + 1) : 1,
       createdAt,
-      ...body,
       responseTo: 'NULL',
+      ...body,
     };
   } else if (homepage === '') {
     newMessage = {
       id: maxID > 0 ? (maxID + 1) : 1,
       createdAt,
-      ...body,
       homepage: 'NULL',
+      ...body,
     };
   } else {
     newMessage = {
@@ -95,14 +71,6 @@ export async function addOneMessage(body: any) {
   return newMessage;
 }
 
-// export const getAll = async() => {
-//   return Good.findAll();
-// };
-
-// export const getGoodById = async(goodId: number) => {
-//   return Good.findByPk(goodId);
-// };
-
 // export const addGood = async(name: string, colorId: number) => {
 //   const newGood = {
 //     name,
@@ -112,10 +80,3 @@ export async function addOneMessage(body: any) {
 //   return Good.create(newGood);
 // };
 
-// export const removeGood = async(goodId: number) => {
-//   return Good.destroy({
-//     where: {
-//       id: goodId,
-//     },
-//   });
-// };
