@@ -51,7 +51,6 @@
     "pg": "^8.8.0",
     "pg-hstore": "^2.3.4",
     "pg-promise": "^11.2.0",
-    "pg-native": "file:./modules/pg-native",
     "sequelize": "^6.25.8",
     "serverless-http": "^3.1.0",
     "uuid": "^9.0.0",

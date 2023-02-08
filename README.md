@@ -11,11 +11,11 @@ Application allows users to exchange messages in realtime, use HTML tags in thei
 ### Dependencies
 * Node v12.16.3 and higher
 * NPM v6.14.4 and higher
-* ... (describe any prerequisites, libraries, OS version, etc., needed before installing program.)
 
 
 ### Installing
 * Fork and clone this repository
 * Run `npm install` in your terminal
-* Copy or move files from folder 'modules_fix/pg-native' to folder 'node_modules/pg-native' 
+* Copy or move files from folder 'modules_fix/pg-native' to folder 'node_modules/pg-native'
+* Add '"pg-native": "file:./modules/pg-native",' line in your package.json file under dependencies section
 * Run `npm start`
