@@ -71,24 +71,25 @@ export const addOne = async(req: Request, res: Response) => {
     messageText,
   } = req.body;
 
-  if (typeof username !== 'string'
-    || typeof email !== 'string'
-    || typeof homepage !== 'string'
-    || typeof messageText !== 'string'
-    || Object.keys(req.body).length < 4
-  ) {
-    res.sendStatus(400);
-
-    return;
-  }
-
-  const newMessage = addOneMessage(req.body);
-
-  res.statusCode = 201;
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type,X-Token');
   res.setHeader('Access-Control-Allow-Methods', 'POST');
-  res.send(newMessage);
+
+  // if (typeof username !== 'string'
+  //   || typeof email !== 'string'
+  //   || typeof homepage !== 'string'
+  //   || typeof messageText !== 'string'
+  //   || Object.keys(req.body).length < 4
+  // ) {
+  //   res.sendStatus(400);
+
+  //   return;
+  // }
+
+  // const newMessage = addOneMessage(req.body);
+
+  res.statusCode = 201;
+  res.send('Post worked successfully');
 };
 
 // export const getOne = async (req: Request, res: Response) => {
