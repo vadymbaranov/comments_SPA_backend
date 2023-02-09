@@ -11,6 +11,5 @@ messagesRouter.get('/messages', getAll);
 
 messagesRouter.post(
   '/messages',
-  express.urlencoded({ extended: true }),
   addOne,
 );

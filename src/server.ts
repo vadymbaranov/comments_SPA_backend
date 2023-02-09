@@ -21,6 +21,7 @@ const API_PATH = '/.netlify/functions/server';
 //     client.send(JSON.stringify(message));
 //   }
 // });
+app.use(express.json());
 
 app.use(cors({
   origin: 'https://vadymbaranov.github.io',
