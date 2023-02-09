@@ -59,6 +59,7 @@ export const getAll = async(req: Request, res: Response) => {
     results.results = messagesSorted.slice(startIndex, endIndex);
   }
 
+  res.setHeader('Access-Control-Allow-Origin', '*');
   res.send(results);
 };
 
@@ -86,6 +87,9 @@ export const addOne = async(req: Request, res: Response) => {
   const newMessage = addOneMessage(req.body);
 
   res.statusCode = 201;
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type,X-Token');
+  res.setHeader('Access-Control-Allow-Methods', 'POST');
   res.send(newMessage);
 };
 

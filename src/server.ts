@@ -22,7 +22,6 @@ const API_PATH = '/.netlify/functions/server';
 //   }
 // });
 
-app.use(express.json());
 app.use(cors());
 app.use(API_PATH, messagesRouter);
 app.use('/', router);
