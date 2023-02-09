@@ -1,7 +1,8 @@
 /* eslint-disable no-shadow */
 import fs from 'fs/promises';
 import path from 'path';
-import { Message } from '../models/messageModel';
+import { MessageType } from 'src/types/MessageType';
+// import { Message } from '../models/messageModel';
 
 export async function getAllMessages() {
   const filePath = path.resolve('public/api', 'messages.json');
@@ -11,21 +12,22 @@ export async function getAllMessages() {
   return parsedData;
 }
 
-export async function getAllMessagesDB() {
-  const result = await Message.findAll({
-    order: [
-      'created_at',
-    ],
-  });
+// export async function getAllMessagesDB() {
+//   const result = await Message.findAll({
+//     order: [
+//       'created_at',
+//     ],
+//   });
 
-  return result;
-}
+//   return result;
+// }
 
 export async function addOneMessage(body: any) {
   const filePath = path.resolve('public/api', 'messages.json');
   const data = await fs.readFile(filePath, 'utf-8');
   const parsedData = JSON.parse(data);
-  const maxID = Math.max(...parsedData.map((message: any) => message.id));
+  const maxID = Math.max(...parsedData
+    .map((message: MessageType) => message.id));
   const createdAt = new Date();
   const { username, email, homepage, messageText, responseTo } = body;
 
