@@ -22,7 +22,9 @@ const API_PATH = '/.netlify/functions/server';
 //   }
 // });
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://vadymbaranov.github.io',
+}));
 app.use(API_PATH, messagesRouter);
 app.use('/', router);
 
