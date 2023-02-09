@@ -1,2 +1,2 @@
 /*
-  Access-Control-Allow-Origin: https://vadymbaranov.github.io
+  Access-Control-Allow-Origin: *
