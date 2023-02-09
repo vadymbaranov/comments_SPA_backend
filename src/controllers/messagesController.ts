@@ -71,16 +71,16 @@ export const addOne = async(req: Request, res: Response) => {
     messageText,
   } = req.body;
 
-  // if (typeof username !== 'string'
-  //   || typeof email !== 'string'
-  //   || typeof homepage !== 'string'
-  //   || typeof messageText !== 'string'
-  //   || Object.keys(req.body).length < 4
-  // ) {
-  //   res.sendStatus(400);
+  if (typeof username !== 'string'
+    || typeof email !== 'string'
+    || typeof homepage !== 'string'
+    || typeof messageText !== 'string'
+    || Object.keys(req.body).length < 4
+  ) {
+    res.sendStatus(400);
 
-  //   return;
-  // }
+    return;
+  }
 
   const newMessage = addOneMessage(req.body);
 
