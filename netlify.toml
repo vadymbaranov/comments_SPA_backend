@@ -6,3 +6,7 @@
   directory = "src"
   included_files = ["src/api/**/*", "public/**/*"]
 
+[[headers]]
+  for = "/*"
+    [headers.values]
+    Access-Control-Allow-Origin = "*"
