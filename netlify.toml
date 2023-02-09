@@ -6,6 +6,11 @@
   directory = "src"
   included_files = ["src/api/**/*", "public/**/*"]
 
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
+
 [[headers]]
   for = "/*"
     [headers.values]
